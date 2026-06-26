@@ -25,7 +25,7 @@ st.title("📞 Telecom Churn Prediction & Analytics Dashboard")
 # =========================
 
 try:
-    response = requests.get(f"{API_URL}/cache_data", timeout=5)
+    response = requests.get(f"{API_URL}/cache_data", timeout=60)
     
     # Sécurité : On vérifie si FastAPI a répondu avec succès (Code 200)
     if response.status_code == 200:
@@ -46,7 +46,7 @@ st.subheader("📊 Global KPIs")
 
 
 try:
-    res = requests.get(f"{API_URL}/analytics", timeout=5)
+    res = requests.get(f"{API_URL}/analytics", timeout=60)
     kpis = res.json()
 
     col1, col2, col3 = st.columns(3)
@@ -160,7 +160,7 @@ if st.sidebar.button("Predict Churn Risk"):
         response = requests.post(
             f"{API_URL}/predict",
             json=payload,
-            timeout=5
+            timeout=60
         )
         result = response.json()
 
