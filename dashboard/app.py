@@ -10,7 +10,7 @@ import plotly.express as px
 BASE_DIR = Path(__file__).resolve().parent
 ROOT_DIR = BASE_DIR.parent
 
-API_URL = "http://telecom-api:8000"
+API_URL = "https://telecom-churn-7q6x.onrender.com"
 
 st.set_page_config(
     page_title="Telecom Churn Analytics",
