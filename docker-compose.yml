@@ -1,15 +1,24 @@
-version: "3.9"
-
 services:
 
-  api:
-    build: ./api
+  telecom-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+
+    container_name: telecom-api
+
     ports:
       - "8000:8000"
 
-  dashboard:
-    build: ./dashboard
+  telecom-dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile.dashboard
+
+    container_name: telecom-dashboard
+
     ports:
       - "8501:8501"
+
     depends_on:
-      - api
+      - telecom-api
