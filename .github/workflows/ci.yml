@@ -25,6 +25,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements-api.txt -r requirements-dashboard.txt pytest httpx
 
+      - name: Add project root to PYTHONPATH
+        run: echo "PYTHONPATH=." >> $GITHUB_ENV
+
       - name: Run Pytest
         run: |
           pytest
